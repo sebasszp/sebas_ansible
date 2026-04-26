@@ -11,9 +11,11 @@
         headers:
           Authorization: Bearer {{ token }}
       register: numero_de_paginas
+      run_once: true
       delegate_to: localhost
 
 
     - name: numero de paginas
+      run_once: true
       debug:
         msg: {{ numero_de_paginas.count }}
