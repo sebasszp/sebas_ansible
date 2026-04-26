@@ -18,4 +18,4 @@
     - name: Paginas encontradas
       run_once: true
       debug:
-        msg: "{{ (numero_de_paginas.json.count | int / 10) | int}}"
+        msg: "{{ ((numero_de_paginas.json.count / 10) | round(0, 'ceil')) | int }}"
