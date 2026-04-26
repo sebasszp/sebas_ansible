@@ -10,12 +10,26 @@
         method: GET
         headers:
           Authorization: Bearer {{ token }}
-      register: numero_de_paginas
+      register: numero_de_paginas_get
       run_once: true
       delegate_to: localhost
 
 
     - name: Paginas encontradas
       run_once: true
-      debug:
-        msg: "{{ ((numero_de_paginas.json.count / 10) | round(0, 'ceil')) | int }}"
+      set_fact:
+        numero_de_paginas: "{{ ((numero_de_paginas_get.json.count / 10) | round(0, 'ceil')) | int }}"
+
+
+
+
+    - name: Inventarios AWX
+      uri:
+        url: "http://192.168.123.100:30080/api/v2/jobs/?page={{ item }}&page_size=10"
+        method: GET
+        headers:
+          Authorization: Bearer {{ token }}
+      register: numero_de_paginas_get
+      run_once: true
+      delegate_to: localhost
+      loop: {{ range(1, numero_paginas_) }}
