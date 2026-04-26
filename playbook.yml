@@ -8,4 +8,4 @@
         method: GET
         return_content: yes
         validate_certs: no
-      delegate: localhost
+      delegate_to: localhost
