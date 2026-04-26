@@ -32,4 +32,4 @@
       register: numero_de_paginas_get
       run_once: true
       delegate_to: localhost
-      loop: {{ range(1, numero_paginas_) }}
+      loop: {{ range(1, numero_de_paginas | int + 1) | list }}
