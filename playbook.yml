@@ -1,11 +1,13 @@
 ---
 - name: Llamar API de AWX
   hosts: localhost
+  vars:
+    token: {{ lookup('env', 'TOWER_OAUTH_TOKEN') }}
   tasks:
     - name: Inventarios AWX
       uri:
         url: "http://192.168.123.100:30080/api/v2/inventories/"
         method: GET
         headers:
-          Authorization: "Bearer TU_TOKEN"
+          Authorization: Bearer {{ token }} 
       delegate_to: localhost
