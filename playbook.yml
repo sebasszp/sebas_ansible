@@ -15,7 +15,7 @@
       delegate_to: localhost
 
 
-    - name: numero de paginas
+    - name: Paginas encontradas
       run_once: true
       debug:
-        msg: "{{ numero_de_paginas.json.count }}"
+        msg: "{{ (numero_de_paginas.json.count | int / 10) | int}}"
