@@ -1,1 +1,9 @@
-
+---
+- name: Llamar API de AWX
+  hosts: localhost
+  vars:
+    token: "{{ lookup('env', 'TOWER_OAUTH_TOKEN') }}"
+  tasks:
+  - name: Pausa 5 segundos
+    pause:
+      seconds: 3000
