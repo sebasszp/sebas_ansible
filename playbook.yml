@@ -2,7 +2,7 @@
 - name: Llamar API de AWX
   hosts: localhost
   vars:
-    token: {{ lookup('env', 'TOWER_OAUTH_TOKEN') }}
+    token: "{{ lookup('env', 'TOWER_OAUTH_TOKEN') }}"
   tasks:
     - name: Inventarios AWX
       uri:
