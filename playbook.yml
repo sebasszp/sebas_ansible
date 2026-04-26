@@ -1,1 +1,10 @@
 ---
+- name: Llamar API de AWX
+  hosts: localhost
+  tasks:
+    - name: Ping API
+      uri:
+        url: "http://192.168.123.100:30080/api/v2/ping/"
+        method: GET
+        return_content: yes
+        validate_certs: no
