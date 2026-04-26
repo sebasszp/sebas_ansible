@@ -2,10 +2,10 @@
 - name: Llamar API de AWX
   hosts: localhost
   tasks:
-    - name: Ping API
+    - name: Inventarios AWX
       uri:
-        url: "http://192.168.123.100:30080/api/v2/ping/"
+        url: "http://192.168.123.100:30080/api/v2/inventories/"
         method: GET
-        return_content: yes
-        validate_certs: no
+        headers:
+          Authorization: "Bearer TU_TOKEN"
       delegate_to: localhost
