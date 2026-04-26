@@ -18,4 +18,4 @@
     - name: numero de paginas
       run_once: true
       debug:
-        msg: {{ numero_de_paginas.count }}
+        msg: "{{ numero_de_paginas.count }}"
