@@ -6,8 +6,14 @@
   tasks:
     - name: Inventarios AWX
       uri:
-        url: "http://192.168.123.100:30080/api/v2/inventories/"
+        url: "http://192.168.123.100:30080/api/v2/jobs"
         method: GET
         headers:
-          Authorization: Bearer {{ token }} 
+          Authorization: Bearer {{ token }}
+      register: numero_de_paginas
       delegate_to: localhost
+
+
+    - name: numero de paginas
+      debug:
+        msg: {{ numero_de_paginas.count }}
