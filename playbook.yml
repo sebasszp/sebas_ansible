@@ -4,7 +4,7 @@
   vars:
     token: "{{ lookup('env', 'TOWER_OAUTH_TOKEN') }}"
   tasks:
-    - name: Inventarios AWX
+    - name: jobs
       uri:
         url: "http://192.168.123.100:30080/api/v2/jobs/?page_size=10&status=running"
         method: GET
@@ -28,4 +28,8 @@
         headers:
           Authorization: "Bearer {{ token }}"
         status_code: 202
-      loop: "{{ numero_de_paginas_get.json.results }}"
+      loop: "{{ numero_de_paginas_get.json.results | rejectattr('id', 'equalto', tower_job_id | int) | list }}"
+
+    - name: debug
+      debug:
+        msg: "parada exitosa"
