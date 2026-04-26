@@ -20,3 +20,12 @@
       set_fact:
         numero_de_paginas: "{{ ((numero_de_paginas_get.json.count / 10) | round(0, 'ceil')) | int }}"
 
+
+    - name: Cancelar jobs en ejecución
+      uri:
+        url: "http://192.168.123.100:30080/api/v2/jobs/{{ item.id }}/cancel/"
+        method: POST
+        headers:
+          Authorization: "Bearer {{ token }}"
+        status_code: 202
+      loop: "{{ numero_de_paginas_get.json.results }}"
