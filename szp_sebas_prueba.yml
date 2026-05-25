@@ -11,3 +11,4 @@
   tasks:
     - debug:
         var: dato
+      delegate_to: localhost
