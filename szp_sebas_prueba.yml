@@ -3,7 +3,9 @@
   hosts: localhost
   tasks:
     - set_stats:
-        dato: "hola"
+        data:
+          dato: "hola"
+
 
     - debug:
         var: dato
