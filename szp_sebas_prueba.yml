@@ -1,11 +1,10 @@
 - hosts: localhost
   tasks:
-  - set_fact:
-      dato: "hola"
-      run_once: true
+    - command: echo hola
+      register: resultado
 
 - hosts: all
   tasks:
     - debug:
-        var: hostvars['localhost']['dato']
+        var: hostvars['localhost']['resultado']
       delegate_to: localhost
