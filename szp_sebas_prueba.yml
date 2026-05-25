@@ -5,6 +5,8 @@
     - set_fact:
         dato: "hola"
 
+    - debug:
+        var: dato
 
 - name: Play 2
   hosts: all
