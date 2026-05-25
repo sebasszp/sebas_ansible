@@ -1,19 +1,13 @@
 ---
-- name: Llamar API de AWX
+- name: Play 1
   hosts: localhost
-  vars:
-    token: "{{ lookup('env', 'TOWER_OAUTH_TOKEN') }}"
   tasks:
+    - set_fact:
+        dato: "hola"
 
-  - name: Play 1
-    hosts: localhost
-    tasks:
-      - set_fact:
-          dato: "hola"
-  
-  
-  - name: Play 2
-    hosts: all
-    tasks:
-      - debug:
-          var: dato
+
+- name: Play 2
+  hosts: all
+  tasks:
+    - debug:
+        var: dato
