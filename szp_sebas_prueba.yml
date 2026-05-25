@@ -11,7 +11,7 @@
 
     - name: Variable
       set_fact:
-        variable: hostvars['localhost']['resultado']
+        variable: {{ hostvars['localhost']['resultado'] }}
     
     - debug:
         var: variable
