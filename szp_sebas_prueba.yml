@@ -3,8 +3,9 @@
     - set_stats:
         data:
           dato: "hola"
+      run_once: true
 
 - hosts: all
   tasks:
     - debug:
-        var: dato
+        var: hostvars['localhost']['dato']
