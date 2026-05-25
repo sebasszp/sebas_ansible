@@ -8,3 +8,4 @@
   tasks:
     - debug:
         var: hostvars['localhost']['dato']
+      delegate_to: localhost
