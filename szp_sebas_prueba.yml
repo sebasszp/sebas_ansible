@@ -13,7 +13,7 @@
   
   
   - name: Play 2
-    hosts: server2
+    hosts: all
     tasks:
       - debug:
           var: dato
