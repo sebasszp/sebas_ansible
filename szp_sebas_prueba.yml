@@ -1,8 +1,7 @@
 - hosts: localhost
   tasks:
-    - set_stats:
-        data:
-          dato: "hola"
+  - set_fact:
+      dato: "hola"
       run_once: true
 
 - hosts: all
