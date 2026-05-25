@@ -5,6 +5,13 @@
 
 - hosts: all
   tasks:
+  - name: Pruebas
+    block: 
+
+
+    - name: Variable
+      set_fact:
+        variable: hostvars['localhost']['resultado']
+    
     - debug:
-        var: hostvars['localhost']['resultado']
-      delegate_to: localhost
+        var: variable
