@@ -2,7 +2,7 @@
 - name: Play 1
   hosts: localhost
   tasks:
-    - set_fact:
+    - set_stats:
         dato: "hola"
 
     - debug:
@@ -13,4 +13,3 @@
   tasks:
     - debug:
         var: dato
-      delegate_to: localhost
