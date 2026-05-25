@@ -1,0 +1,12 @@
+- name: Play 1
+  hosts: localhost
+  tasks:
+    - set_fact:
+        dato: "hola"
+
+
+- name: Play 2
+  hosts: server2
+  tasks:
+    - debug:
+        var: dato
