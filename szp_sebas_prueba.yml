@@ -12,5 +12,4 @@
   hosts: all
   tasks:
     - debug:
-        var: dato
-      delegate_to: localhost
+        var: hostvars['localhost']['dato']
