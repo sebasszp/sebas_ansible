@@ -1,17 +1,10 @@
----
-- name: Play 1
-  hosts: localhost
+- hosts: localhost
   tasks:
     - set_stats:
         data:
           dato: "hola"
 
-
-    - debug:
-        var: dato
-
-- name: Play 2
-  hosts: all
+- hosts: all
   tasks:
     - debug:
         var: dato
